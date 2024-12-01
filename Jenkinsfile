@@ -57,7 +57,7 @@ pipeline {
                 dir('Terraform') {                
                     git branch: 'main', url: 'https://github.com/rafalgalan/Terraform'
                     withAWS(credentials:'AWS', region: 'us-east-1') {
-                            sh 'terraform init -backend-config=rafal-galan-panda-devops-core-19'
+                            sh 'terraform init -backend-config=bucket=rafal-galan-panda-devops-core-19'
                             sh 'terraform apply -auto-approve -var bucket_name=rafal-galan-panda-devops-core-19'
                             
                     } 
